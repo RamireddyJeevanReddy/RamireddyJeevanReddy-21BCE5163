@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #fff;
+    padding: 20px;
+}
+
+#container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1b1b1b;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    border: 2px solid #21c1ff;
+    margin-bottom: 40px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: repeat(5, 80px);
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.cell {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #21c1ff;
+    border: 3px solid #21c1ff;
+    background-color: #101010;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.cell:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 0 15px #21c1ff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cell:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #21c1ff, inset 0 0 10px #21c1ff;
+}
+
+.cell:hover:before {
+    opacity: 1;
+}
+
+.cell.selected {
+    background-color: #ff0044;
+    border: 3px solid #fff;
+    box-shadow: 0 0 30px #ff0044, inset 0 0 15px #ff0044;
+}
+
+#controls {
+    margin-top: 25px;
+    text-align: center;
+}
+
+#status {
+    font-size: 24px;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #151515;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    color: #21c1ff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: #111111;
+}
+
+table, th, td {
+    border: 1px solid #21c1ff;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    color: #21c1ff;
+}
+
+thead {
+    background-color: #222222;
+    color: #21c1ff;
+    text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #151515;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #0f0f0f;
+}
+
+@media screen and (max-width: 600px) {
+    #board {
+        grid-template-columns: repeat(5, 60px);
+        grid-template-rows: repeat(5, 60px);
+    }
+
+    .cell {
+        width: 60px;
+        height: 60px;
+        font-size: 22px;
+    }
+}
